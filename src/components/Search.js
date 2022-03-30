@@ -1,15 +1,16 @@
-import React from 'react'
-import { Card } from './Card'
+import React, {useContext} from 'react'
+import { DataContext } from '../context/DataContext'
+import { SearchBar } from './SearchBar'
+import { SearchResult } from './SearchResult'
 
 export const Search = () => {
+  
+  const {pokemons} = useContext(DataContext);
+
   return (
-    <main style={{minHeight: "calc(100vh - 80px - 200px)"}} className="w-4/5 m-auto mt-4">
-        <h2 className="text-black font-bold text-4xl">Resultados de la búsqueda</h2>
-        <div className="mt-10">
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-        </div>
-    </main>
+    <div className="w-4/5 m-auto">
+        <SearchBar></SearchBar>
+        <SearchResult pokemons={pokemons}></SearchResult>
+    </div>
   )
 }
