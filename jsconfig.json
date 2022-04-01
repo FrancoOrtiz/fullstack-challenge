@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "baseUrl": "src",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true
+    },
+    "include": ["src"]
+  }

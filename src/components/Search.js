@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DataContext } from "../context/DataContext";
+import React from "react";
 import { SearchBar } from "./SearchBar";
 import { SearchResult } from "./SearchResult";
 

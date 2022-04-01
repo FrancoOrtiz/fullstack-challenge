@@ -6,6 +6,13 @@ export const DataProvider = ({ children }) => {
   const [page, setPage] = useState(0);
   const [pokemons, setPokemons] = useState([]);
 
+  const fetchAllPokemons = async () => {
+    const url = `http://localhost:3002/api/pokemons/${page}`;
+    const peticion = await fetch(url);
+    const pokemons = await peticion.json();
+    setPokemons(pokemons);
+  };
+
   const pokemonByName = async (namedPokemon) => {
     if (namedPokemon === "") {
       fetchAllPokemons();
@@ -15,13 +22,6 @@ export const DataProvider = ({ children }) => {
       const named = await peticion.json();
       setPokemons(named);
     }
-  };
-
-  const fetchAllPokemons = async () => {
-    const url = `http://localhost:3002/api/pokemons/${page}`;
-    const peticion = await fetch(url);
-    const pokemons = await peticion.json();
-    setPokemons(pokemons);
   };
 
   useEffect(() => {
