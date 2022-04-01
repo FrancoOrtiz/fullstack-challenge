@@ -1,21 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { DataContext } from '../context/DataContext';
 import { useForm } from '../hooks/useForm';
 
-export const SearchBar = ({setPokemon}) => {
+export const SearchBar = () => {
+
+  const {pokemonByName} = useContext(DataContext)
 
   const initialState = {
     name: ''
   }
 
   const [formValues, handleInputChange] = useForm(initialState)
-
-  console.log(formValues)
-
   const {name} = formValues;
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    
+    pokemonByName(name)
   }
 
   return (
