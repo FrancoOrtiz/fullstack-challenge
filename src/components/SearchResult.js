@@ -4,7 +4,7 @@ import { Card } from './Card'
 
 export const SearchResult = () => {
 
-  const {pokemons, setPage, lastPokemons} = useContext(DataContext)
+  const {pokemons, setPage} = useContext(DataContext)
   
   return (
     <main style={{minHeight: "calc(100vh - 80px - 200px)"}} className="mt-10 relative">
