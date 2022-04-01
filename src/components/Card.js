@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export const Card = ({pokemonName, pokemonImg, pokemonNum}) => {
-
+export const Card = ({ pokemonName, pokemonImg, pokemonNum }) => {
   return (
     <div className="flex w-80 h-40 my-10">
       <div className="h-full w-40 bg-gray-100 border-4 border-blue-300 rounded-full">
@@ -12,5 +11,5 @@ export const Card = ({pokemonName, pokemonImg, pokemonNum}) => {
         <span>{pokemonNum}</span>
       </div>
     </div>
-  )
-}
+  );
+};
