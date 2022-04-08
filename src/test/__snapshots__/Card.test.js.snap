@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests on Card.js should be render 1`] = `
+<div
+  className="flex w-80 h-40 my-10"
+>
+  <div
+    className="h-full w-40 bg-gray-100 border-4 border-blue-300 rounded-full"
+  >
+    <img
+      alt=""
+      className="w-full"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+    />
+  </div>
+  <div
+    className="mt-4 ml-10 flex flex-col"
+  >
+    <span
+      className="text-xl font-bold text-gray-400"
+    >
+      pikachu
+    </span>
+    <span>
+      35
+    </span>
+  </div>
+</div>
+`;
