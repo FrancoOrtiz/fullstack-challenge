@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { DataContext } from "../context/DataContext";
+import { dataContext } from "../context/dataContext";
 import { useForm } from "../hooks/useForm";
 
 export const SearchBar = () => {
-  const { pokemonByName } = useContext(DataContext);
+  const { pokemonByName } = useContext(dataContext);
 
   const initialState = {
     name: "",

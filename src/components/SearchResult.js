@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { DataContext } from "../context/DataContext";
+import { dataContext } from "../context/dataContext";
 import { Card } from "./Card";
 
 export const SearchResult = () => {
-  const { pokemons, setPage } = useContext(DataContext);
+  const { pokemons, setPage } = useContext(dataContext);
 
   return (
     <main
