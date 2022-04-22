@@ -1,6 +1,13 @@
 import React from "react";
+import { useAuth } from "../context/authContext";
 
 export const Footer = () => {
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
   return (
     <footer className="w-4/5 m-auto flex justify-between mt-10 border-t-2 border-gray-400 items-center h-20 pl-10 pr-20">
       <p>Hecho por Franco</p>
@@ -11,6 +18,9 @@ export const Footer = () => {
       >
         Link a mi repo
       </a>
+      <button type="button" onClick={handleLogout}>
+        Logout
+      </button>
     </footer>
   );
 };
