@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 
-export const DataContext = createContext();
+export const dataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [page, setPage] = useState(0);
@@ -29,7 +29,7 @@ export const DataProvider = ({ children }) => {
   }, [page]);
 
   return (
-    <DataContext.Provider
+    <dataContext.Provider
       value={{
         pokemons,
         setPokemons,
@@ -39,6 +39,6 @@ export const DataProvider = ({ children }) => {
       }}
     >
       {children}
-    </DataContext.Provider>
+    </dataContext.Provider>
   );
 };
