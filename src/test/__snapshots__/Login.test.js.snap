@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests on Login.js should be render 1`] = `
+<div
+  className="mt-32 w-4/5 lg:w-2/4 m-auto"
+>
+  <form
+    className=" pt-10 pb-6 flex flex-col text-center gap-6 bg-white rounded-xl shadow-lg shadow-slate-400"
+    onSubmit={[Function]}
+  >
+    <header
+      className="flex flex-col gap-3 w-4/5 m-auto"
+    >
+      <h1
+        className="text-black text-6xl font-bold"
+      >
+        Pokemon finder
+      </h1>
+      <p
+        className="text-gray-500 text-xl"
+      >
+        El que quiere Pokemons, que los busque.
+      </p>
+    </header>
+    <div
+      className="w-4/5 m-auto flex flex-col gap-1 my-0"
+    >
+      <label
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="border-solid border-2 rounded-md border-gray-500 h-10 pl-2 w-2/3 lg:w-1/2 m-auto"
+        name="email"
+        onChange={[Function]}
+        placeholder="youremail@company.ltd"
+        type="email"
+      />
+    </div>
+    <div
+      className="w-4/5 m-auto flex flex-col gap-1 my-0"
+    >
+      <label
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        className="border-solid border-2 rounded-md border-gray-500 h-10 pl-2 w-2/3 lg:w-1/2 m-auto"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="******"
+        type="password"
+      />
+    </div>
+    <div
+      className="w-full flex-col items-center flex pt-6 mt-6 border-solid border-t-2 border-gray-200"
+    >
+      <button
+        className="w-44 h-14 bg-blue-500 font-bold text-white rounded-lg text-lg hover:bg-transparent border-2 border-blue-500 hover:text-blue-500 transition-all"
+      >
+        Login
+      </button>
+      <button
+        className="w-52 h-14 border-2 font-bold border-black rounded-lg text-lg mt-4 "
+        onClick={[Function]}
+        type="button"
+      >
+        Login with Google
+      </button>
+    </div>
+  </form>
+  <div
+    className="mt-4 flex w-full justify-between"
+  >
+    <button
+      className="text-blue-400 mt-4 hover:text-blue-600"
+      onClick={[Function]}
+      type="button"
+    >
+      No tienes un usuario? Clickea aqui
+    </button>
+    <button
+      className="text-blue-400 mt-4 hover:text-blue-600"
+      onClick={[Function]}
+      type="button"
+    >
+      Olvidaste tu contraseña?
+    </button>
+  </div>
+</div>
+`;
