@@ -8,7 +8,8 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { setDoc, doc, getDoc, onSnapshot } from "firebase/firestore";
 
 export const authContext = createContext();
 
@@ -20,6 +21,20 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [favPokemon, setFavPokemon] = useState([]);
+
+  const getFavPokemons = async (currentUser) => {
+    if (currentUser) {
+      const docRef = doc(db, "users", currentUser.uid);
+      const docSnap = await getDoc(docRef);
+      const { favorites } = docSnap.data();
+      if (favorites) {
+        setFavPokemon(favorites);
+      } else {
+        setFavPokemon([]);
+      }
+    }
+  };
 
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -30,6 +45,24 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => signOut(auth);
+
+  const addFavPokemon = async (name) => {
+    const actualFav = favPokemon.find((fav) => fav === name);
+    const indexPokemon = favPokemon.indexOf(name);
+    const docRef = doc(db, "users", user.uid);
+
+    if (actualFav) {
+      favPokemon.splice(indexPokemon, 1);
+    } else {
+      favPokemon.push(name);
+    }
+
+    await setDoc(docRef, { favorites: favPokemon });
+    await onSnapshot(docRef, (doc) => {
+      const { favorites } = doc.data();
+      setFavPokemon(favorites);
+    });
+  };
 
   const loginWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -42,6 +75,7 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      getFavPokemons(currentUser);
     });
 
     return () => unsubscribe();
@@ -57,6 +91,8 @@ export const AuthProvider = ({ children }) => {
         loginWithGoogle,
         loading,
         resetPassword,
+        addFavPokemon,
+        favPokemon,
       }}
     >
       {children}
